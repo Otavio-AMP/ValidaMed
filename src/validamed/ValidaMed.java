@@ -4,8 +4,6 @@
  */
 package validamed;
 import java.util.*;
-import java.time.*;
-import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -29,11 +27,17 @@ public class ValidaMed {
         System.out.println("A receita está Assinada e/ou Carimbada ? true or false");
         boolean carimbo = inputDados.nextBoolean();
         
+        System.out.println("Quantos medicamentos existem na receita ?");
+        int qtdMedicamentos = inputDados.nextInt();
+        
         // Consome a quebra de linha pendente
         inputDados.nextLine();
         
         System.out.println("Quais os medicamentos da receita: ");
-        String medicamentos = inputDados.nextLine();
+        String[] medicamentos = new String[qtdMedicamentos];
+        for(int i = 0; i < qtdMedicamentos; i++){
+           medicamentos[i] = inputDados.nextLine();
+        }
         
         System.out.println("Nome do Paciente: ");
         String nomePaciente = inputDados.nextLine();
@@ -51,6 +55,7 @@ public class ValidaMed {
         
         Receita dadosDaReceita = new Receita(textoData, crmDoMedico, carimbo, medicamentos);
         Paciente dadosPaciente = new Paciente(nomePaciente, idadePaciente, sexoPaciente);
+        
         dadosPaciente.getPaciente();
         dadosDaReceita.getDadosDaReceita();
     }
