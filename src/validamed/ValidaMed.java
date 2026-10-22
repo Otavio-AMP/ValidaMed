@@ -42,7 +42,7 @@ public class ValidaMed {
         
         System.out.println("A receita está Assinada e/ou Carimbada ?");
         boolean carimbo = inputDados.nextBoolean();
-        
     }
     
 }
+// teste commit 
