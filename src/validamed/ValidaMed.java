@@ -18,31 +18,41 @@ public class ValidaMed {
      */
     public static void main(String[] args) {
         Scanner inputDados = new Scanner(System.in);
-        String nome = "Gustavao Tribola";
-        DateTimeFormatter formatoDataReceita = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        
+
         System.out.println("Insira os dados da receita");
-        System.out.println("Data de Emissão: dd/MMM/yyyy");
+        System.out.println("Data de Emissão: dd/MM/yyyy");
         String textoData = inputDados.nextLine();
-        LocalDate dataEmissao = LocalDate.parse(textoData, formatoDataReceita);
-        
-        System.out.println("Nome do Paciente: ");
-        String nomePaciente = inputDados.nextLine();
-        
-        System.out.println("Idade do Paciente: ");
-        int idadePaciente = inputDados.nextInt();
-        
-        System.out.println("Sexo do Paciente: M/F");
-        String sexoPaciente = inputDados.nextLine();
-        
+
         System.out.println("CRM do Medico: ");
         int crmDoMedico = inputDados.nextInt();
+        
+        System.out.println("A receita está Assinada e/ou Carimbada ? true or false");
+        boolean carimbo = inputDados.nextBoolean();
+        
+        // Consome a quebra de linha pendente
+        inputDados.nextLine();
         
         System.out.println("Quais os medicamentos da receita: ");
         String medicamentos = inputDados.nextLine();
         
-        System.out.println("A receita está Assinada e/ou Carimbada ?");
-        boolean carimbo = inputDados.nextBoolean();
+        System.out.println("Nome do Paciente: ");
+        String nomePaciente = inputDados.nextLine();
+
+        System.out.println("Idade do Paciente: ");
+        int idadePaciente = inputDados.nextInt();
+        
+        // Consome a quebra de linha pendente
+        inputDados.nextLine();
+
+        System.out.println("Sexo do Paciente: M/F");
+        String sexoPaciente = inputDados.nextLine();
+        
+        inputDados.close();
+        
+        Receita dadosDaReceita = new Receita(textoData, crmDoMedico, carimbo, medicamentos);
+        Paciente dadosPaciente = new Paciente(nomePaciente, idadePaciente, sexoPaciente);
+        dadosPaciente.getPaciente();
+        dadosDaReceita.getDadosDaReceita();
     }
     
 }
