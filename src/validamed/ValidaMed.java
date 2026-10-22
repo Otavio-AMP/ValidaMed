@@ -18,6 +18,7 @@ public class ValidaMed {
      */
     public static void main(String[] args) {
         Scanner inputDados = new Scanner(System.in);
+        String nome = "Gustavao Tribola";
         DateTimeFormatter formatoDataReceita = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         
         System.out.println("Insira os dados da receita");
