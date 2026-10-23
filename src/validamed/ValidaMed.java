@@ -24,7 +24,7 @@ public class ValidaMed {
         while (textoData.length() != 10 || textoData.charAt(2) != '/' || textoData.charAt(5) != '/') {
         System.out.println("Data inválida, use o formato dd/mm/yyyy | Exemplo: 23/10/2026");
         textoData = inputDados.nextLine();
-    }
+        }
 
         System.out.println("CRM do Medico: ");
         int crmDoMedico = inputDados.nextInt();
@@ -40,10 +40,23 @@ public class ValidaMed {
         inputDados.nextLine();
         
         System.out.println("Quais os medicamentos da receita: ");
-        String[] medicamentos = new String[qtdMedicamentos];
+        Medicamento[] medicamentos = new Medicamento[qtdMedicamentos];
         for(int i = 0; i < qtdMedicamentos; i++){
-           medicamentos[i] = inputDados.nextLine();
+           System.out.print("Nome do medicamento: ");
+           String nomeMedicamento = inputDados.next();
+           System.out.println("Dosagem: (use valor em mg)");
+           int concentracaoMedicamento = inputDados.nextInt();
+           System.out.println("Comprimidos ao dia:");
+           int qtdComprimidos = inputDados.nextInt();
+           System.out.println("Qual o intervalos entra cada dose ? (use horas)");
+           int intervalosDia = inputDados.nextInt();
+           System.out.println("Quantos dias o tratamento ?");
+           int diasDeDosagem = inputDados.nextInt();
+           medicamentos[i] = new Medicamento(nomeMedicamento, concentracaoMedicamento, qtdComprimidos, intervalosDia, diasDeDosagem);
         }
+        
+        // Consome a quebra de linha pendente
+        inputDados.nextLine();
         
         System.out.println("Nome do Paciente: ");
         String nomePaciente = inputDados.nextLine();
@@ -60,7 +73,7 @@ public class ValidaMed {
         inputDados.close();
         
         Receita dadosDaReceita = new Receita(textoData, crmDoMedico, carimbo, medicamentos);
-        Paciente dadosPaciente = new Paciente(nomePaciente, idadePaciente, sexoPaciente);
+        Paciente dadosPaciente = new Paciente(nomePaciente, idadePaciente, sexoPaciente, dadosDaReceita);
         
         dadosPaciente.getPaciente();
         dadosDaReceita.getDadosDaReceita();
