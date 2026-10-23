@@ -20,12 +20,18 @@ public class ValidaMed {
         System.out.println("Insira os dados da receita");
         System.out.println("Data de Emissão: dd/MM/yyyy");
         String textoData = inputDados.nextLine();
+        
+        while (textoData.length() != 10 || textoData.charAt(2) != '/' || textoData.charAt(5) != '/') {
+        System.out.println("Data inválida, use o formato dd/mm/yyyy | Exemplo: 23/10/2026");
+        textoData = inputDados.nextLine();
+    }
 
         System.out.println("CRM do Medico: ");
         int crmDoMedico = inputDados.nextInt();
         
-        System.out.println("A receita está Assinada e/ou Carimbada ? true or false");
-        boolean carimbo = inputDados.nextBoolean();
+        System.out.println("A receita está Assinada e/ou Carimbada? (sim/não)");
+        String respostaCarimbo = inputDados.next();
+        boolean carimbo = respostaCarimbo.equalsIgnoreCase("sim");
         
         System.out.println("Quantos medicamentos existem na receita ?");
         int qtdMedicamentos = inputDados.nextInt();
