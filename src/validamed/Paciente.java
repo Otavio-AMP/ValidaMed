@@ -17,10 +17,11 @@ public class Paciente {
     private String sexoPaciente;
     private Receita dadosReceita;
     
-    public Paciente(String nomePaciente,int idadePaciente, String sexoPaciente) {
+    public Paciente(String nomePaciente,int idadePaciente, String sexoPaciente, Receita dadosReceita) {
         this.nomePaciente = nomePaciente;
         this.idadePaciente = idadePaciente;
         this.sexoPaciente = sexoPaciente;
+        this.dadosReceita = dadosReceita;
     }
     
     public void getPaciente() {
