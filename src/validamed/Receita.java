@@ -16,11 +16,11 @@ public class Receita {
     private LocalDate dataEmissao;
     private int crmDoMedico;
     private boolean carimbo;
-    private String[] medicamentos;
+    private Medicamento[] medicamentos;
     
     DateTimeFormatter formatoDataReceita = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     
-    public Receita(String textoData, int crmDoMedico, boolean carimbo,String[] medicamentos) {
+    public Receita(String textoData, int crmDoMedico, boolean carimbo,Medicamento[] medicamentos) {
         this.textoData = textoData;
         this.dataEmissao = LocalDate.parse(textoData, formatoDataReceita);
         this.crmDoMedico = crmDoMedico;
@@ -32,7 +32,11 @@ public class Receita {
         System.out.println("-Dados da Receita-");
         System.out.println("Data da Receita: " + dataEmissao);
         System.out.println("CRM do Medico: " + crmDoMedico);
-        System.out.println("Medicamentos da Receita: " + Arrays.toString(medicamentos));
+        for(int i = 0; i < medicamentos.length; i++){
+            System.out.print("{Nome:"+ medicamentos[i].nome);
+            System.out.print(medicamentos[i].concentracao + "mg ");
+            System.out.println("Total de comprimidos:" + medicamentos[i].comprimidos * medicamentos[i].dias + "}");  
+        }
         if(carimbo){
             System.out.println("Receita carimbada");
         }else{
