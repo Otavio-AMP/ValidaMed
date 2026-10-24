@@ -24,6 +24,19 @@ public class Paciente {
         this.dadosReceita = dadosReceita;
     }
     
+    public String getNomePaciente(){
+        return this.nomePaciente;
+    }
+    public int getIdadePaciente(){
+        return this.idadePaciente; 
+    }
+    public String getSexoPaciente() {
+        return this.sexoPaciente;
+    }
+    public Receita getReceita(){
+       return this.dadosReceita;
+    }
+    
     public void showPaciente() {
         System.out.println("-Apresentação do paciente-");
         System.out.println("Nome: " + nomePaciente);
