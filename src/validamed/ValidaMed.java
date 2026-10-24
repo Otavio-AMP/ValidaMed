@@ -75,8 +75,8 @@ public class ValidaMed {
         Receita dadosDaReceita = new Receita(textoData, crmDoMedico, carimbo, medicamentos);
         Paciente dadosPaciente = new Paciente(nomePaciente, idadePaciente, sexoPaciente, dadosDaReceita);
         
-        dadosPaciente.getPaciente();
-        dadosDaReceita.getDadosDaReceita();
+        dadosPaciente.showPaciente();
+        dadosDaReceita.showDadosDaReceita();
     }
     
 }
