@@ -24,7 +24,7 @@ public class Paciente {
         this.dadosReceita = dadosReceita;
     }
     
-    public void getPaciente() {
+    public void showPaciente() {
         System.out.println("-Apresentação do paciente-");
         System.out.println("Nome: " + nomePaciente);
         System.out.println("Idade: " + idadePaciente);
