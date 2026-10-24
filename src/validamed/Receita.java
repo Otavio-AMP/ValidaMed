@@ -28,15 +28,18 @@ public class Receita {
         this.medicamentos = medicamentos;
     }
     
-    public void getDadosDaReceita(){
+    public void showDadosDaReceita(){
         System.out.println("-Dados da Receita-");
         System.out.println("Data da Receita: " + dataEmissao);
         System.out.println("CRM do Medico: " + crmDoMedico);
+        System.out.println("Lista de Medicamentos {");
         for(int i = 0; i < medicamentos.length; i++){
-            System.out.print("{Nome:"+ medicamentos[i].nome);
-            System.out.print(medicamentos[i].concentracao + "mg ");
-            System.out.println("Total de comprimidos:" + medicamentos[i].comprimidos * medicamentos[i].dias + "}");  
+            medicamentos[i].getNome();
+            medicamentos[i].getConcentracao();
+            medicamentos[i].getDias();
+            medicamentos[i].getComprimidos();
         }
+        System.out.println("}");
         if(carimbo){
             System.out.println("Receita carimbada");
         }else{
