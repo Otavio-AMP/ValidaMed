@@ -23,20 +23,23 @@ public class Medicamento {
         this.dias = dias;
     }
     
-    public void getNome(){
-        System.out.print("Nome: " + nome);
+    public String getNome(){
+        return this.nome;
     }
-    public void getConcentracao(){
+    public int getConcentracao(){
         if(concentracao >= 1000){
-            System.out.println("1g");
+            return this.concentracao/100;
         }else{
-            System.out.println(concentracao + "mg");
+            return this.concentracao;
         } 
     }
-    public void getComprimidos(){
-        System.out.println("Quantidade de Comprimidos: " + comprimidos * dias);
+    public int getIntervalos() {
+        return this.intervalos;
     }
-    public void getDias(){
-        System.out.println("Previsão de dias: " + dias);
+    public int getComprimidos(){
+       return this.comprimidos * this.dias;
+    }
+    public int getDias(){
+        return this.dias;
     }
 }
