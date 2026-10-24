@@ -28,6 +28,18 @@ public class Receita {
         this.medicamentos = medicamentos;
     }
     
+    public LocalDate getDataEmissao(){
+        return this.dataEmissao;
+    }
+    
+    public int getCRMDoMedico(){
+       return this.crmDoMedico; 
+    }
+    
+    public boolean getCarimbo(){
+        return this.carimbo;
+    }
+    
     public void showDadosDaReceita(){
         System.out.println("-Dados da Receita-");
         System.out.println("Data da Receita: " + dataEmissao);
