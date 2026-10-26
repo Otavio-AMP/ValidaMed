@@ -32,6 +32,8 @@ public class FrontValidaMed extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jEditorPane1 = new javax.swing.JEditorPane();
         jPanel1 = new javax.swing.JPanel();
         txtMARCA = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -50,11 +52,14 @@ public class FrontValidaMed extends javax.swing.JFrame {
 
         jMenuItem1.setText("jMenuItem1");
 
+        jScrollPane1.setViewportView(jEditorPane1);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ValidaMedApp");
 
         jPanel1.setBackground(new java.awt.Color(75, 91, 250));
 
+        txtMARCA.setEditable(false);
         txtMARCA.setBackground(new java.awt.Color(79, 91, 255));
         txtMARCA.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
         txtMARCA.setForeground(new java.awt.Color(255, 255, 255));
@@ -73,26 +78,28 @@ public class FrontValidaMed extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(16, 16, 16)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtMARCA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(436, Short.MAX_VALUE))
+                .addContainerGap(444, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtMARCA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
+        jButton1.setBackground(new java.awt.Color(75, 91, 250));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton1.setText("Adicionar Receita");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -103,17 +110,17 @@ public class FrontValidaMed extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(260, 260, 260)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(548, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addContainerGap(287, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(109, 109, 109)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(279, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addContainerGap(183, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Receitas", jPanel2);
@@ -141,7 +148,7 @@ public class FrontValidaMed extends javax.swing.JFrame {
                 .addGap(355, 355, 355))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 78, Short.MAX_VALUE)
+                    .addGap(0, 102, Short.MAX_VALUE)
                     .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
@@ -165,6 +172,8 @@ public class FrontValidaMed extends javax.swing.JFrame {
                 )
             );
 
+            //Informações da Receita
+            
             seletorData.setEditor(
                 new javax.swing.JSpinner.DateEditor(seletorData, "dd/MM/yyyy")
             );
@@ -203,6 +212,8 @@ public class FrontValidaMed extends javax.swing.JFrame {
             boolean carimbo = respostaCarimbo.trim().equalsIgnoreCase("sim")
                     || respostaCarimbo.trim().equalsIgnoreCase("s");
 
+            //Informações Medicamentos
+            
             String quantidadeTexto = javax.swing.JOptionPane.showInputDialog(
                 this, "Quantidade de medicamentos:"
             );
@@ -276,6 +287,8 @@ public class FrontValidaMed extends javax.swing.JFrame {
                 );
             }
 
+            //Informações do Paciente
+            
             String nomePaciente = javax.swing.JOptionPane.showInputDialog(
                 this, "Nome do paciente:"
             );
@@ -310,6 +323,8 @@ public class FrontValidaMed extends javax.swing.JFrame {
                 nomePaciente, idade, sexo, receita
             );
 
+            //Exibição das Respostas
+            
             StringBuilder texto = new StringBuilder();
 
             texto.append("========== RECEITA MÉDICA ==========\n\n");
@@ -435,6 +450,7 @@ public class FrontValidaMed extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -445,6 +461,7 @@ public class FrontValidaMed extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField txtMARCA;
     // End of variables declaration//GEN-END:variables
