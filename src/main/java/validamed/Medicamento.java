@@ -37,7 +37,10 @@ public class Medicamento {
         return this.intervalos;
     }
     public int getComprimidos(){
-       return this.comprimidos * this.dias;
+       return this.comprimidos;
+    }
+    public int getTotalComprimidos(){
+        return this.comprimidos * this.dias;
     }
     public int getDias(){
         return this.dias;
