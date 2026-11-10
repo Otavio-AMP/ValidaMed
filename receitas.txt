@@ -1,0 +1,47 @@
+========== RECEITA MÉDICA ==========
+
+Paciente: Otavio Augusto Martins
+Idade: 24
+Sexo: M
+
+Data de emissão: 2026-10-24
+CRM: 1137
+Assinatura e carimbo: Sim
+
+========== MEDICAMENTOS ==========
+
+Medicamento 1:
+Nome: Dipirona
+Dosagem: 500
+Comprimidos por dia: 12
+Intervalo entre doses: 8 horas
+Duração: 4 dias
+
+Medicamento 2:
+Nome: Ondasetrona
+Dosagem: 50
+Comprimidos por dia: 6
+Intervalo entre doses: 12 horas
+Duração: 3 dias
+
+
+========== RECEITA MÉDICA ==========
+
+Paciente: Otavio
+Idade: 24
+Sexo: M
+
+Data de emissão: 2026-10-26
+CRM: 11137
+Assinatura e carimbo: Sim
+
+========== MEDICAMENTOS ==========
+
+Medicamento 1:
+Nome: dipirona
+Dosagem: 1
+Comprimidos por dia: 1
+Intervalo entre doses: 1 horas
+Duração: 1 dias
+
+
