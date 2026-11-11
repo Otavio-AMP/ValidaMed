@@ -320,18 +320,10 @@ public class FrontValidaMed extends javax.swing.JFrame {
                 data, Integer.parseInt(crm), carimbo, medicamentos
             );
 
-            Paciente paciente = new Paciente(
-                nomePaciente, idade, sexo, receita
-            );
-
             //Exibição das Respostas
             
             StringBuilder texto = new StringBuilder();
 
-            texto.append("========== RECEITA MÉDICA ==========\n\n");
-            texto.append("Paciente: ").append(paciente.getNomePaciente()).append("\n");
-            texto.append("Idade: ").append(paciente.getIdadePaciente()).append("\n");
-            texto.append("Sexo: ").append(paciente.getSexoPaciente()).append("\n\n");
 
             texto.append("Data de emissão: ").append(receita.getDataEmissao()).append("\n");
             texto.append("CRM: ").append(receita.getCRMDoMedico()).append("\n");
