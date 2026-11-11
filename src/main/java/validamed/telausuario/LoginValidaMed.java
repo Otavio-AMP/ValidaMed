@@ -31,9 +31,9 @@ public class LoginValidaMed extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jTextField4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        txtSenha = new javax.swing.JPasswordField();
+        txtNome = new javax.swing.JTextField();
+        bttnLogin = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -50,14 +50,14 @@ public class LoginValidaMed extends javax.swing.JFrame {
         jTextField1.setText("Login");
         jTextField1.addActionListener(this::jTextField1ActionPerformed);
 
-        jPasswordField1.setText("jPasswordField1");
+        txtSenha.setText("jPasswordField1");
 
-        jTextField4.setCaretColor(new java.awt.Color(40, 40, 40));
+        txtNome.setCaretColor(new java.awt.Color(40, 40, 40));
 
-        jButton1.setBackground(new java.awt.Color(40, 40, 40));
-        jButton1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(250, 250, 250));
-        jButton1.setText("Login");
+        bttnLogin.setBackground(new java.awt.Color(40, 40, 40));
+        bttnLogin.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        bttnLogin.setForeground(new java.awt.Color(250, 250, 250));
+        bttnLogin.setText("Login");
 
         jLabel2.setBackground(new java.awt.Color(40, 40, 40));
         jLabel2.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
@@ -82,14 +82,14 @@ public class LoginValidaMed extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(139, 139, 139)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
+                    .addComponent(bttnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(txtSenha, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(127, 127, 127))
         );
         jPanel1Layout.setVerticalGroup(
@@ -102,13 +102,13 @@ public class LoginValidaMed extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bttnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(105, Short.MAX_VALUE))
         );
 
@@ -156,13 +156,13 @@ public class LoginValidaMed extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton bttnLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
 }
