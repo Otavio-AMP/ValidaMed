@@ -12,20 +12,29 @@ import java.time.format.DateTimeFormatter;
  * @author aster
  */
 public class Paciente {
+    private int id;
     private String nomePaciente;
+    private String senhaPaciente;
     private int idadePaciente;
     private String sexoPaciente;
     private Receita dadosReceita;
     
-    public Paciente(String nomePaciente,int idadePaciente, String sexoPaciente, Receita dadosReceita) {
+    public Paciente(String nomePaciente, String senhaPaciente,int idadePaciente, String sexoPaciente) {
         this.nomePaciente = nomePaciente;
+        this.senhaPaciente = senhaPaciente;
         this.idadePaciente = idadePaciente;
         this.sexoPaciente = sexoPaciente;
-        this.dadosReceita = dadosReceita;
     }
     
+    
+    public int getIdPaciente() {
+        return this.id;
+    }
     public String getNomePaciente(){
         return this.nomePaciente;
+    }
+    public String getSenhaPaciente(){
+        return this.senhaPaciente;
     }
     public int getIdadePaciente(){
         return this.idadePaciente; 
