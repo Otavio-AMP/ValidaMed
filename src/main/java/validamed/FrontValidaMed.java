@@ -98,6 +98,7 @@ public class FrontValidaMed extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(75, 91, 250));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(250, 250, 250));
         jButton1.setText("Adicionar Receita");
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -110,17 +111,17 @@ public class FrontValidaMed extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(548, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(263, 263, 263)
                 .addComponent(jButton1)
-                .addContainerGap())
+                .addContainerGap(291, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(279, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(112, 112, 112)
                 .addComponent(jButton1)
-                .addContainerGap())
+                .addContainerGap(173, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Receitas", jPanel2);
@@ -319,18 +320,10 @@ public class FrontValidaMed extends javax.swing.JFrame {
                 data, Integer.parseInt(crm), carimbo, medicamentos
             );
 
-            Paciente paciente = new Paciente(
-                nomePaciente, idade, sexo, receita
-            );
-
             //Exibição das Respostas
             
             StringBuilder texto = new StringBuilder();
 
-            texto.append("========== RECEITA MÉDICA ==========\n\n");
-            texto.append("Paciente: ").append(paciente.getNomePaciente()).append("\n");
-            texto.append("Idade: ").append(paciente.getIdadePaciente()).append("\n");
-            texto.append("Sexo: ").append(paciente.getSexoPaciente()).append("\n\n");
 
             texto.append("Data de emissão: ").append(receita.getDataEmissao()).append("\n");
             texto.append("CRM: ").append(receita.getCRMDoMedico()).append("\n");
