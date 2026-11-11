@@ -4,6 +4,9 @@
  */
 package validamed.telausuario;
 
+import javax.swing.JOptionPane;
+import validamed.Metodos.MetodosPaciente;
+import validamed.Paciente;
 /**
  *
  * @author aster
@@ -12,9 +15,9 @@ public class CadastroValidaMed extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CadastroValidaMed.class.getName());
 
-    /**
-     * Creates new form CadastroValidaMed
-     */
+    private Paciente novoPaciente;
+    private LoginValidaMed telaLogin;
+    
     public CadastroValidaMed() {
         initComponents();
     }
@@ -29,19 +32,19 @@ public class CadastroValidaMed extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        bttnCadastrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtSenha = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
-        jPasswordField2 = new javax.swing.JPasswordField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        txtConfirmarSenha = new javax.swing.JPasswordField();
+        optMasc = new javax.swing.JRadioButton();
+        optFem = new javax.swing.JRadioButton();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtIdade = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -49,10 +52,11 @@ public class CadastroValidaMed extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(75, 91, 250));
 
-        jButton1.setBackground(new java.awt.Color(40, 40, 40));
-        jButton1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        jButton1.setText("Cadastrar");
-        jButton1.addActionListener(this::jButton1ActionPerformed);
+        bttnCadastrar.setBackground(new java.awt.Color(40, 40, 40));
+        bttnCadastrar.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        bttnCadastrar.setForeground(new java.awt.Color(250, 250, 250));
+        bttnCadastrar.setText("Cadastrar");
+        bttnCadastrar.addActionListener(this::bttnCadastrarActionPerformed);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/validamed/ValiadaMedLogo5.png"))); // NOI18N
 
@@ -73,22 +77,22 @@ public class CadastroValidaMed extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(250, 250, 250));
         jLabel3.setText("Senha:");
 
-        jPasswordField1.setText("jPasswordField1");
+        txtSenha.setText("jPasswordField1");
 
         jLabel4.setBackground(new java.awt.Color(40, 40, 40));
         jLabel4.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(250, 250, 250));
         jLabel4.setText("Confirmar senha:");
 
-        jPasswordField2.setText("jPasswordField1");
+        txtConfirmarSenha.setText("jPasswordField1");
 
-        jRadioButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(250, 250, 250));
-        jRadioButton1.setText("Masculino");
+        optMasc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        optMasc.setForeground(new java.awt.Color(250, 250, 250));
+        optMasc.setText("Masculino");
 
-        jRadioButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jRadioButton2.setForeground(new java.awt.Color(250, 250, 250));
-        jRadioButton2.setText("Feminino");
+        optFem.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        optFem.setForeground(new java.awt.Color(250, 250, 250));
+        optFem.setText("Feminino");
 
         jLabel5.setBackground(new java.awt.Color(40, 40, 40));
         jLabel5.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
@@ -110,27 +114,27 @@ public class CadastroValidaMed extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(63, 63, 63)
-                        .addComponent(jRadioButton1)
+                        .addComponent(optMasc)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton2)
+                        .addComponent(optFem)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bttnCadastrar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
-                                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtConfirmarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel3)
-                                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel6)
-                                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(18, 18, 18)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel2)))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel1)
@@ -151,23 +155,23 @@ public class CadastroValidaMed extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtConfirmarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
+                    .addComponent(optMasc)
+                    .addComponent(optFem)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bttnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
@@ -189,9 +193,45 @@ public class CadastroValidaMed extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void bttnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnCadastrarActionPerformed
+        try {
+            if(!txtNome.getText().isEmpty()){
+                if(!txtIdade.getText().isEmpty()){
+                    if(!txtSenha.getText().isBlank()){
+                        if(!txtSenha.getPassword().equals(txtConfirmarSenha)){
+                            if(optMasc.isSelected()){
+                                //Instaciamento do cadastro de Paciente - M
+                                MetodosPaciente cadastro = new MetodosPaciente();
+                                novoPaciente = new Paciente(txtNome.getText(), txtSenha.getText(), Integer.parseInt(txtIdade.toString()), "Masculino");
+                                cadastro.cadastrarPaciente(novoPaciente);
+                                telaLogin.setVisible(true);
+                                java.awt.EventQueue.invokeLater(() -> new CadastroValidaMed().setVisible(false));
+                            }else if(optFem.isSelected()){
+                                //Instaciamento do cadastro de Paciente - F
+                                MetodosPaciente cadastro = new MetodosPaciente();
+                                novoPaciente = new Paciente(txtNome.getText(), txtSenha.getText(), Integer.parseInt(txtIdade.toString()), "Feminino");
+                                cadastro.cadastrarPaciente(novoPaciente);
+                                telaLogin.setVisible(true);
+                                java.awt.EventQueue.invokeLater(() -> new CadastroValidaMed().setVisible(false));
+                            }else{
+                                JOptionPane.showMessageDialog(null, "Você deve selecionar algum sexo");
+                            }
+                        }else{
+                            JOptionPane.showMessageDialog(null, "As senhas devem ser iguais");
+                        }
+                    }else{
+                        JOptionPane.showMessageDialog(null, "O campo Senha não pode estar vazio");
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null, "Campo Idade não pode estar vazio");
+                } 
+            }else{
+                JOptionPane.showMessageDialog(null, "Campo Nome não pode estar vazio");
+            }      
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Algo deu Errado confira coneão com servidor");
+        }
+    }//GEN-LAST:event_bttnCadastrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -219,7 +259,7 @@ public class CadastroValidaMed extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton bttnCadastrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -227,12 +267,12 @@ public class CadastroValidaMed extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JRadioButton optFem;
+    private javax.swing.JRadioButton optMasc;
+    private javax.swing.JPasswordField txtConfirmarSenha;
+    private javax.swing.JTextField txtIdade;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
 }
