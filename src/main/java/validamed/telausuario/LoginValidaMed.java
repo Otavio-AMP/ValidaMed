@@ -7,6 +7,7 @@ package validamed.telausuario;
 import javax.swing.JOptionPane;
 import validamed.Metodos.MetodosPaciente;
 import validamed.Paciente;
+import validamed.FrontValidaMed;
 
 /**
  *
@@ -20,11 +21,11 @@ public class LoginValidaMed extends javax.swing.JFrame {
      * Creates new form LoginValidaMed
      */
     public LoginValidaMed() {
-    initComponents();
+        initComponents();
 
-    txtSenha.setText("");
+        setLocationRelativeTo(null);
 
-    bttnLogin.addActionListener(e -> realizarLogin());
+        bttnLogin.addActionListener(e -> realizarLogin());
 }
 
     /**
@@ -39,11 +40,11 @@ public class LoginValidaMed extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        txtSenha = new javax.swing.JTextField();
         bttnLogin = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
+        txtSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,9 +58,6 @@ public class LoginValidaMed extends javax.swing.JFrame {
         jTextField1.setForeground(new java.awt.Color(250, 250, 250));
         jTextField1.setText("Login");
         jTextField1.addActionListener(this::jTextField1ActionPerformed);
-
-        txtSenha.setCaretColor(new java.awt.Color(40, 40, 40));
-        txtSenha.addActionListener(this::txtSenhaActionPerformed);
 
         bttnLogin.setBackground(new java.awt.Color(40, 40, 40));
         bttnLogin.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
@@ -85,22 +83,22 @@ public class LoginValidaMed extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(250, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(245, 245, 245))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(139, 139, 139)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bttnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtSenha)
+                    .addComponent(bttnLogin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(txtNome))
+                    .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGap(127, 127, 127))
         );
         jPanel1Layout.setVerticalGroup(
@@ -116,9 +114,9 @@ public class LoginValidaMed extends javax.swing.JFrame {
                 .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bttnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(92, Short.MAX_VALUE))
         );
@@ -140,24 +138,41 @@ public class LoginValidaMed extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
-    private void realizarLogin() {
+    
+    private void bttnLoginActionPerformed(java.awt.event.ActionEvent evt){
+        try {
+            String nome = txtNome.getText().trim();
+            String senha = new String(txtSenha.getPassword());
 
-    String nome = txtNome.getText().trim();
-    String senha = new String(txtSenha.getPassword());
+            if (nome.isEmpty() || senha.isEmpty()) {
+                javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "Preencha todos os campos!"
+                );
+                return;
+            }
 
-    if (nome.isEmpty() || senha.isEmpty()) {
-        javax.swing.JOptionPane.showMessageDialog(
-            this,
-            "Preencha todos os campos!"
-        );
-        return;
+            javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Dados recebidos! Aguardando validação no banco."
+            );
+            //Metodo de Login
+            MetodosPaciente logar = new MetodosPaciente();
+            Paciente dadosLogin = new Paciente(nome, senha);
+            logar.loginPaciente(dadosLogin);
+            
+            //Fluxo Tela
+            FrontValidaMed telaPrincipal = new FrontValidaMed();
+            telaPrincipal.setVisible(true);
+            this.dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Algo deu errado com o Login" + e.getMessage());
+        }
     }
-
-    javax.swing.JOptionPane.showMessageDialog(
-        this,
-        "Dados recebidos! Aguardando validação no banco."
-    );
-}
+    
+    private void realizarLogin() {
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -191,6 +206,6 @@ public class LoginValidaMed extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtSenha;
+    private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
 }

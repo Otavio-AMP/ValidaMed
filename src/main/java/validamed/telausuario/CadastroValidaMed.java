@@ -20,6 +20,7 @@ public class CadastroValidaMed extends javax.swing.JFrame {
     
     public CadastroValidaMed() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -38,17 +39,16 @@ public class CadastroValidaMed extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        txtSenha = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
+        txtConfirmarSenha = new javax.swing.JPasswordField();
         optMasc = new javax.swing.JRadioButton();
         optFem = new javax.swing.JRadioButton();
         jLabel5 = new javax.swing.JLabel();
         txtIdade = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtConfirmarSenha = new javax.swing.JTextField();
-        txtSenha = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(720, 470));
         setPreferredSize(new java.awt.Dimension(708, 436));
 
         jPanel1.setBackground(new java.awt.Color(75, 91, 250));
@@ -57,7 +57,6 @@ public class CadastroValidaMed extends javax.swing.JFrame {
         bttnCadastrar.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         bttnCadastrar.setForeground(new java.awt.Color(250, 250, 250));
         bttnCadastrar.setText("Cadastrar");
-        bttnCadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bttnCadastrar.addActionListener(this::bttnCadastrarActionPerformed);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/validamed/ValiadaMedLogo5.png"))); // NOI18N
@@ -79,7 +78,6 @@ public class CadastroValidaMed extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(250, 250, 250));
         jLabel3.setText("Senha:");
 
-        txtSenha.setText("jPasswordField1");
         txtSenha.addActionListener(this::txtSenhaActionPerformed);
 
         jLabel4.setBackground(new java.awt.Color(40, 40, 40));
@@ -88,14 +86,12 @@ public class CadastroValidaMed extends javax.swing.JFrame {
         jLabel4.setText("Confirmar senha:");
 
         optMasc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        optMasc.setForeground(new java.awt.Color(10, 10, 10));
+        optMasc.setForeground(new java.awt.Color(250, 250, 250));
         optMasc.setText("Masculino");
-        optMasc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         optFem.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        optFem.setForeground(new java.awt.Color(10, 10, 10));
+        optFem.setForeground(new java.awt.Color(250, 250, 250));
         optFem.setText("Feminino");
-        optFem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel5.setBackground(new java.awt.Color(40, 40, 40));
         jLabel5.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
@@ -106,8 +102,6 @@ public class CadastroValidaMed extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(250, 250, 250));
         jLabel6.setText("Nome:");
-
-        txtSenha.addActionListener(this::txtSenhaActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -127,27 +121,24 @@ public class CadastroValidaMed extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(bttnCadastrar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtSenha)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel4)
-                                            .addComponent(jLabel3)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(txtConfirmarSenha)
+                                    .addComponent(jLabel4)
+                                    .addComponent(txtConfirmarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3)
+                                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel6)
                                             .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(18, 18, 18)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel2)
-                                            .addComponent(txtIdade, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE))))))
+                                            .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel2)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(102, 102, 102))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -168,19 +159,19 @@ public class CadastroValidaMed extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtConfirmarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtConfirmarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(optMasc)
                     .addComponent(optFem)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bttnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -203,57 +194,57 @@ public class CadastroValidaMed extends javax.swing.JFrame {
 
     private void bttnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnCadastrarActionPerformed
         String nome = txtNome.getText().trim();
-    String idadeTxt = txtIdade.getText().trim();
-    char[] senha = txtSenha.getPassword();
-    char[] confirmar = txtConfirmarSenha.getPassword();
+        String idadeTxt = txtIdade.getText().trim();
+        char[] senha = txtSenha.getPassword();
+        char[] confirmar = txtConfirmarSenha.getPassword();
 
-    if (nome.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Campo Nome não pode estar vazio");
-        return;
-    }
-    if (idadeTxt.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Campo Idade não pode estar vazio");
-        return;
-    }
-    int idade;
-    try {
-        idade = Integer.parseInt(idadeTxt);
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(this, "A idade deve ser um número válido");
-        return;
-    }
-    if (senha.length == 0) {
-        JOptionPane.showMessageDialog(this, "O campo Senha não pode estar vazio");
-        return;
-    }
-    if (!java.util.Arrays.equals(senha, confirmar)) {
-        JOptionPane.showMessageDialog(this, "As senhas devem ser iguais");
-        return;
-    }
+        if (nome.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Campo Nome não pode estar vazio");
+            return;
+        }
+        if (idadeTxt.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Campo Idade não pode estar vazio");
+            return;
+        }
+        int idade;
+        try {
+            idade = Integer.parseInt(idadeTxt);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "A idade deve ser um número válido");
+            return;
+        }
+        if (senha.length == 0) {
+            JOptionPane.showMessageDialog(this, "O campo Senha não pode estar vazio");
+            return;
+        }
+        if (!java.util.Arrays.equals(senha, confirmar)) {
+            JOptionPane.showMessageDialog(this, "As senhas devem ser iguais");
+            return;
+        }
 
-    String sexo;
-    if (optMasc.isSelected()) {
-        sexo = "Masculino";
-    } else if (optFem.isSelected()) {
-        sexo = "Feminino";
-    } else {
-        JOptionPane.showMessageDialog(this, "Você deve selecionar algum sexo");
-        return;
-    }
+        String sexo;
+        if (optMasc.isSelected()) {
+            sexo = "Masculino";
+        } else if (optFem.isSelected()) {
+            sexo = "Feminino";
+        } else {
+            JOptionPane.showMessageDialog(this, "Você deve selecionar algum sexo");
+            return;
+        }
 
-    try {
-        MetodosPaciente cadastro = new MetodosPaciente();
-        novoPaciente = new Paciente(nome, new String(senha), idade, sexo);
-        cadastro.cadastrarPaciente(novoPaciente);
+        try {
+            MetodosPaciente cadastro = new MetodosPaciente();
+            novoPaciente = new Paciente(nome, new String(senha), idade, sexo);
+            cadastro.cadastrarPaciente(novoPaciente);
 
-        telaLogin = new LoginValidaMed();
-        telaLogin.setVisible(true);
-        this.dispose();
-    } catch (Exception e) {
-        logger.log(java.util.logging.Level.SEVERE, "Erro ao cadastrar", e);
-        JOptionPane.showMessageDialog(this,
-            "Algo deu errado, confira a conexão com o servidor ou tente novamente");
-    }
+            telaLogin = new LoginValidaMed();
+            telaLogin.setVisible(true);
+            this.dispose();
+        } catch (Exception e) {
+            logger.log(java.util.logging.Level.SEVERE, "Erro ao cadastrar", e);
+            JOptionPane.showMessageDialog(this,
+                "Algo deu errado, confira a conexão com o servidor ou tente novamente");
+        }
     }//GEN-LAST:event_bttnCadastrarActionPerformed
 
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
@@ -297,9 +288,9 @@ public class CadastroValidaMed extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JRadioButton optFem;
     private javax.swing.JRadioButton optMasc;
-    private javax.swing.JTextField txtConfirmarSenha;
+    private javax.swing.JPasswordField txtConfirmarSenha;
     private javax.swing.JTextField txtIdade;
     private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtSenha;
+    private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
 }
