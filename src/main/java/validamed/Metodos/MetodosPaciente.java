@@ -30,19 +30,26 @@ public class MetodosPaciente {
             rq.execute();
             rq.close();
             
-            JOptionPane.showMessageDialog(null, "Novo paciente cadastrado com sucesso!");
+            System.out.println("Novo paciente cadastrado com sucesso!");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Não foi possível cadastrar o Paciente");
+            JOptionPane.showMessageDialog(null, "Não foi possível cadastrar o Paciente" + e.getMessage());
         } 
     }
     
-    public void loginPaciente(Paciente novoPaciente) {
+    public void loginPaciente(Paciente loginPaciente) {
         
-        String sql = "select paciente where" + "values(?,?,?,?)";
+        String sql = "select * from paciente where (nome,senha)" + "values(?,?)";
         
-        try {
+        try (PreparedStatement rq = conn.prepareStatement(sql)){
+            rq.setString(1, loginPaciente.getNomePaciente());
+            rq.setString(2, loginPaciente.getSenhaPaciente());
             
+            rq.execute();
+            rq.close();
+            
+            JOptionPane.showMessageDialog(null, "Login com Sucesso!");
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Erro ao realizar login" + e.getMessage());
         }
     }
 }
