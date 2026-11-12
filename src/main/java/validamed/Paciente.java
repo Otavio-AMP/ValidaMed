@@ -26,6 +26,11 @@ public class Paciente {
         this.sexoPaciente = sexoPaciente;
     }
     
+    public Paciente(String nomePaciente, String senhaPaciente){
+        this.nomePaciente = nomePaciente;
+        this.senhaPaciente = senhaPaciente;
+    }
+    
     
     public int getIdPaciente() {
         return this.id;

@@ -21,10 +21,10 @@ public class ValidaMed {
                 tela.setVisible(false);
                 
                 CadastroValidaMed telaCadastro = new CadastroValidaMed();
-                telaCadastro.setVisible(false);
+                telaCadastro.setVisible(true);
                 
                 LoginValidaMed telaLogin = new LoginValidaMed();
-                telaLogin.setVisible(true);
+                telaLogin.setVisible(false);
             }
         });
     }
