@@ -2,3 +2,8 @@
 /nbproject/private/
 *.class
 .env
+.env
+build/
+dist/
+nbproject/private/
+*.class

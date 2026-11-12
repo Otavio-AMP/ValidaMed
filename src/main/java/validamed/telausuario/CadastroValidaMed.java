@@ -79,6 +79,9 @@ public class CadastroValidaMed extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(250, 250, 250));
         jLabel3.setText("Senha:");
 
+        txtSenha.setText("jPasswordField1");
+        txtSenha.addActionListener(this::txtSenhaActionPerformed);
+
         jLabel4.setBackground(new java.awt.Color(40, 40, 40));
         jLabel4.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(250, 250, 250));
@@ -199,46 +202,58 @@ public class CadastroValidaMed extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void bttnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnCadastrarActionPerformed
-        try {
-            if(txtNome.getText().trim().isEmpty()){
-                JOptionPane.showMessageDialog(null, "Campo Nome não pode estar vazio");
-                return;
-            }
-            
-            int idadePaciente = 0;
-            
-            if(txtIdade.getText().trim().isEmpty()){
-                JOptionPane.showMessageDialog(null, "Campo Idade não pode estar vazio");
-                return;
-            }
-            
-            idadePaciente = Integer.parseInt(txtIdade.getText());
-            
-            if(txtSenha.getText().trim().isEmpty()){
-                JOptionPane.showMessageDialog(null, "O campo Senha não pode estar vazio");
-                return;
-            }
-            if(!txtSenha.getText().equals(txtConfirmarSenha.getText())){
-                JOptionPane.showMessageDialog(null, "As senhas devem ser iguais");
-                return;
-            }
-            String sexo = null;
-            
-            if(!optMasc.isSelected() && !optFem.isSelected()){
-                JOptionPane.showMessageDialog(null, "Você deve selecionar algum sexo");
-            }
-            if(optMasc.isSelected()){
-                sexo = "Masculino";    
-            } 
-            if(optFem.isSelected()){
-                sexo = "Feminino";
-            }
-            MetodosPaciente cadastro = new MetodosPaciente();
-            novoPaciente = new Paciente(txtNome.getText(), txtSenha.getText(),idadePaciente, sexo);
-            cadastro.cadastrarPaciente(novoPaciente);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Algo deu Errado confira conexão com servidor" + e.getMessage());
-        }
+        String nome = txtNome.getText().trim();
+    String idadeTxt = txtIdade.getText().trim();
+    char[] senha = txtSenha.getPassword();
+    char[] confirmar = txtConfirmarSenha.getPassword();
+
+    if (nome.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Campo Nome não pode estar vazio");
+        return;
+    }
+    if (idadeTxt.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Campo Idade não pode estar vazio");
+        return;
+    }
+    int idade;
+    try {
+        idade = Integer.parseInt(idadeTxt);
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "A idade deve ser um número válido");
+        return;
+    }
+    if (senha.length == 0) {
+        JOptionPane.showMessageDialog(this, "O campo Senha não pode estar vazio");
+        return;
+    }
+    if (!java.util.Arrays.equals(senha, confirmar)) {
+        JOptionPane.showMessageDialog(this, "As senhas devem ser iguais");
+        return;
+    }
+
+    String sexo;
+    if (optMasc.isSelected()) {
+        sexo = "Masculino";
+    } else if (optFem.isSelected()) {
+        sexo = "Feminino";
+    } else {
+        JOptionPane.showMessageDialog(this, "Você deve selecionar algum sexo");
+        return;
+    }
+
+    try {
+        MetodosPaciente cadastro = new MetodosPaciente();
+        novoPaciente = new Paciente(nome, new String(senha), idade, sexo);
+        cadastro.cadastrarPaciente(novoPaciente);
+
+        telaLogin = new LoginValidaMed();
+        telaLogin.setVisible(true);
+        this.dispose();
+    } catch (Exception e) {
+        logger.log(java.util.logging.Level.SEVERE, "Erro ao cadastrar", e);
+        JOptionPane.showMessageDialog(this,
+            "Algo deu errado, confira a conexão com o servidor ou tente novamente");
+    }
     }//GEN-LAST:event_bttnCadastrarActionPerformed
 
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed

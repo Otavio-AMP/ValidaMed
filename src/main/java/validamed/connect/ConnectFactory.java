@@ -7,8 +7,9 @@ package validamed.connect;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
-
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import io.github.cdimascio.dotenv.Dotenv;
 import java.util.Optional;
 /**
@@ -28,6 +29,7 @@ public class ConnectFactory {
     private static String PASSWORD = dbPass;
         
         public Connection getConnection(){
+
 
             try {
                 System.out.println("Conexão com Database realizada com sucesso!");

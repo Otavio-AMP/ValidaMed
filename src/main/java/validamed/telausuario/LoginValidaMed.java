@@ -20,8 +20,12 @@ public class LoginValidaMed extends javax.swing.JFrame {
      * Creates new form LoginValidaMed
      */
     public LoginValidaMed() {
-        initComponents();
-    }
+    initComponents();
+
+    txtSenha.setText("");
+
+    bttnLogin.addActionListener(e -> realizarLogin());
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -136,31 +140,24 @@ public class LoginValidaMed extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+    private void realizarLogin() {
 
-    private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSenhaActionPerformed
+    String nome = txtNome.getText().trim();
+    String senha = new String(txtSenha.getPassword());
 
-    private void bttnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnLoginActionPerformed
-        try {
-            if(txtNome.getText().trim().isEmpty()){
-                JOptionPane.showMessageDialog(null, "O campo Nome não pode estar vazio");
-                return;
-            }
-            if(txtSenha.getText().trim().isEmpty()){
-                JOptionPane.showMessageDialog(null, "O campo Senha não pode estar vazio");
-                return;
-            }
-            
-            Paciente dadosPaciente = new Paciente(txtNome.getText(), txtSenha.getText());
-            MetodosPaciente login = new MetodosPaciente();
-            login.loginPaciente(dadosPaciente);
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Erro ao fazer o Login" + e.getMessage());
-        }
-    }//GEN-LAST:event_bttnLoginActionPerformed
+    if (nome.isEmpty() || senha.isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(
+            this,
+            "Preencha todos os campos!"
+        );
+        return;
+    }
 
+    javax.swing.JOptionPane.showMessageDialog(
+        this,
+        "Dados recebidos! Aguardando validação no banco."
+    );
+}
     /**
      * @param args the command line arguments
      */
