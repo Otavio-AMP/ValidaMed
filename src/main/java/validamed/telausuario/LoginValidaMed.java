@@ -163,8 +163,10 @@ public class LoginValidaMed extends javax.swing.JFrame {
             
             //Fluxo Tela
             FrontValidaMed telaPrincipal = new FrontValidaMed();
-            telaPrincipal.setVisible(true);
-            this.dispose();
+            if(logar.loginPaciente(dadosLogin)){
+                telaPrincipal.setVisible(true);
+                this.dispose();
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Algo deu errado com o Login" + e.getMessage());
         }

@@ -45,3 +45,17 @@ Intervalo entre doses: 1 horas
 Duração: 1 dias
 
 
+Data de emissão: 2026-11-13
+CRM: 651
+Assinatura e carimbo: Sim
+
+========== MEDICAMENTOS ==========
+
+Medicamento 1:
+Nome: droga
+Dosagem: 800
+Comprimidos por dia: 6
+Intervalo entre doses: 3 horas
+Duração: 365 dias
+
+

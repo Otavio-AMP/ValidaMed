@@ -1,6 +1,7 @@
 package validamed.metodo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import validamed.Paciente;
 import validamed.connect.ConnectFactory;
@@ -32,20 +33,29 @@ public class MetodosPaciente {
         } 
     }
     
-    public void loginPaciente(Paciente loginPaciente) {
+    public boolean loginPaciente(Paciente loginPaciente) {
         
-        String sql = "select * from paciente where (nome,senha)" + "values(?,?)";
+        String sql = "select * from paciente where nome = ? and senha = ?";
         
         try (PreparedStatement rq = conn.prepareStatement(sql)){
             rq.setString(1, loginPaciente.getNomePaciente());
             rq.setString(2, loginPaciente.getSenhaPaciente());
             
-            rq.execute();
-            rq.close();
+         try (ResultSet rs = rq.executeQuery()) {
+            if (rs.next()) {
+                JOptionPane.showMessageDialog(null, "Login com Sucesso!");
+                return true;   // achou o usuário: login válido
+                 
+            } else {
+                JOptionPane.showMessageDialog(null, "Nome ou senha incorretos.");
+                return false;  // não achou
+            }
+            }
             
-            JOptionPane.showMessageDialog(null, "Login com Sucesso!");
+           
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"Erro ao realizar login" + e.getMessage());
+          return false;
         }
     }
 }
