@@ -1,14 +1,10 @@
-package validamed.Metodos;
+package validamed.metodo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import validamed.Paciente;
 import validamed.connect.ConnectFactory;
 
-/**
- *
- * @author aster
- */
 public class MetodosPaciente {
     
     private Connection conn;

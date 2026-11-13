@@ -9,7 +9,7 @@
  */
 
 package validamed;
-
+        
 public class FrontValidaMed extends javax.swing.JFrame {
 
     /**
@@ -17,6 +17,9 @@ public class FrontValidaMed extends javax.swing.JFrame {
      */
     public FrontValidaMed() {
         initComponents();
+        if(this.isActive()){
+            
+        }
     }
 
     /**

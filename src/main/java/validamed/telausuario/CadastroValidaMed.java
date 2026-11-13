@@ -5,7 +5,7 @@
 package validamed.telausuario;
 
 import javax.swing.JOptionPane;
-import validamed.Metodos.MetodosPaciente;
+import validamed.metodo.MetodosPaciente;
 import validamed.Paciente;
 /**
  *
