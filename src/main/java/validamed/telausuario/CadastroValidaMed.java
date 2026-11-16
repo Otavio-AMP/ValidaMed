@@ -52,6 +52,7 @@ public class CadastroValidaMed extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(708, 436));
 
         jPanel1.setBackground(new java.awt.Color(75, 91, 250));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1200, 720));
 
         bttnCadastrar.setBackground(new java.awt.Color(40, 40, 40));
         bttnCadastrar.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
@@ -178,11 +179,11 @@ public class CadastroValidaMed extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 687, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
         );
 
         pack();
