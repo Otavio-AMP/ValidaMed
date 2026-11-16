@@ -63,7 +63,7 @@ public class LoginValidaMed extends javax.swing.JFrame {
         bttnLogin.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         bttnLogin.setForeground(new java.awt.Color(250, 250, 250));
         bttnLogin.setText("Login");
-        bttnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bttnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bttnLogin.addActionListener(this::bttnLoginActionPerformed);
 
         jLabel2.setBackground(new java.awt.Color(40, 40, 40));
@@ -162,7 +162,7 @@ public class LoginValidaMed extends javax.swing.JFrame {
             logar.loginPaciente(dadosLogin);
             
             //Fluxo Tela
-            FrontValidaMed telaPrincipal = new FrontValidaMed();
+            FrontValidaMed telaPrincipal = new FrontValidaMed(dadosLogin);
             if(logar.loginPaciente(dadosLogin)){
                 telaPrincipal.setVisible(true);
                 this.dispose();
