@@ -9,17 +9,25 @@
  */
 
 package validamed;
-        
+
+import validamed.*;
+import validamed.metodo.*;
+
 public class FrontValidaMed extends javax.swing.JFrame {
 
     /**
      * Creates new form FrontValidaMed
      */
-    public FrontValidaMed() {
+    public FrontValidaMed(Paciente loginPaciente) {
         initComponents();
         if(this.isActive()){
-            
+            MetodosReceita receitas = new MetodosReceita();
+            receitas.exibirReceita(loginPaciente);
         }
+    }
+    
+    public FrontValidaMed(){
+        initComponents();
     }
 
     /**
@@ -98,6 +106,7 @@ public class FrontValidaMed extends javax.swing.JFrame {
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1200, 720));
 
         jButton1.setBackground(new java.awt.Color(75, 91, 250));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -319,19 +328,11 @@ public class FrontValidaMed extends javax.swing.JFrame {
                 return;
             }
 
-            Receita receita = new Receita(
-                data, Integer.parseInt(crm), carimbo, medicamentos
-            );
-
             //Exibição das Respostas
             
             StringBuilder texto = new StringBuilder();
 
 
-            texto.append("Data de emissão: ").append(receita.getDataEmissao()).append("\n");
-            texto.append("CRM: ").append(receita.getCRMDoMedico()).append("\n");
-            texto.append("Assinatura e carimbo: ")
-                 .append(receita.getCarimbo() ? "Sim" : "Não").append("\n\n");
 
             texto.append("========== MEDICAMENTOS ==========\n");
 
