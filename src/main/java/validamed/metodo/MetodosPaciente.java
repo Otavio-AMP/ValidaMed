@@ -51,8 +51,6 @@ public class MetodosPaciente {
                 return false;  // não achou
             }
             }
-            
-           
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"Erro ao realizar login" + e.getMessage());
           return false;
