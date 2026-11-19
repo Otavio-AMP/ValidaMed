@@ -24,10 +24,12 @@ public class FrontValidaMed extends javax.swing.JFrame {
             MetodosReceita receitas = new MetodosReceita();
             receitas.exibirReceita(loginPaciente);
         }
+        setLocationRelativeTo(null);
     }
     
     public FrontValidaMed(){
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -67,6 +69,7 @@ public class FrontValidaMed extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ValidaMedApp");
+        setMinimumSize(new java.awt.Dimension(1280, 720));
 
         jPanel1.setBackground(new java.awt.Color(75, 91, 250));
 
@@ -93,7 +96,7 @@ public class FrontValidaMed extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtMARCA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(444, Short.MAX_VALUE))
+                .addContainerGap(1002, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,16 +127,16 @@ public class FrontValidaMed extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(263, 263, 263)
+                .addGap(486, 486, 486)
                 .addComponent(jButton1)
-                .addContainerGap(291, Short.MAX_VALUE))
+                .addContainerGap(626, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(112, 112, 112)
+                .addGap(245, 245, 245)
                 .addComponent(jButton1)
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addContainerGap(285, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Receitas", jPanel2);
@@ -152,7 +155,7 @@ public class FrontValidaMed extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1280, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,8 +164,8 @@ public class FrontValidaMed extends javax.swing.JFrame {
                 .addGap(355, 355, 355))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 102, Short.MAX_VALUE)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(0, 99, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jTabbedPane1.getAccessibleContext().setAccessibleName("tabReceita");

@@ -18,7 +18,7 @@ public class ValidaMed {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 FrontValidaMed tela = new FrontValidaMed();
-                tela.setVisible(false);
+                tela.setVisible(true);
                 
                 CadastroValidaMed telaCadastro = new CadastroValidaMed();
                 telaCadastro.setVisible(false);
