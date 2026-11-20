@@ -60,6 +60,7 @@ public class LoginValidaMed extends javax.swing.JFrame {
         jTextField1.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(250, 250, 250));
         jTextField1.setText("Login");
+        jTextField1.setBorder(null);
         jTextField1.addActionListener(this::jTextField1ActionPerformed);
 
         bttnLogin.setBackground(new java.awt.Color(40, 40, 40));
@@ -85,20 +86,20 @@ public class LoginValidaMed extends javax.swing.JFrame {
         telaCadastro.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         telaCadastro.setForeground(new java.awt.Color(250, 250, 250));
         telaCadastro.setText("Não tem Cadastro ? Clique aqui!");
-        telaCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        telaCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(406, 406, 406)
+                .addGap(400, 400, 400)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(125, 125, 125)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(104, 104, 104)
                         .addComponent(telaCadastro))
@@ -108,12 +109,12 @@ public class LoginValidaMed extends javax.swing.JFrame {
                         .addComponent(txtNome)
                         .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(bttnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(436, Short.MAX_VALUE))
+                .addContainerGap(400, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(90, 90, 90)
+                .addGap(159, 159, 159)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -129,7 +130,7 @@ public class LoginValidaMed extends javax.swing.JFrame {
                 .addComponent(bttnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(telaCadastro)
-                .addContainerGap(291, Short.MAX_VALUE))
+                .addContainerGap(167, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

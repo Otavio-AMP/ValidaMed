@@ -47,15 +47,13 @@ public class FrontValidaMed extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
         jEditorPane1 = new javax.swing.JEditorPane();
+        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         txtMARCA = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        painelVazio = new javax.swing.JPanel();
+        addReceita = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
 
         jMenu3.setText("File");
         jMenuBar2.add(jMenu3);
@@ -70,6 +68,10 @@ public class FrontValidaMed extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ValidaMedApp");
         setMinimumSize(new java.awt.Dimension(1280, 720));
+
+        jPanel2.setBackground(new java.awt.Color(238, 241, 255));
+        jPanel2.setMinimumSize(new java.awt.Dimension(1200, 700));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1200, 700));
 
         jPanel1.setBackground(new java.awt.Color(75, 91, 250));
 
@@ -92,60 +94,67 @@ public class FrontValidaMed extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(22, 22, 22)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtMARCA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1002, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtMARCA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setPreferredSize(new java.awt.Dimension(1200, 720));
+        painelVazio.setBackground(new java.awt.Color(255, 255, 255));
+        painelVazio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 206, 255)));
+        painelVazio.setPreferredSize(new java.awt.Dimension(500, 300));
 
-        jButton1.setBackground(new java.awt.Color(75, 91, 250));
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(250, 250, 250));
-        jButton1.setText("Adicionar Receita");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        addReceita.setBackground(new java.awt.Color(75, 91, 250));
+        addReceita.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        addReceita.setForeground(new java.awt.Color(250, 250, 250));
+        addReceita.setText("Adicionar Receita");
+        addReceita.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        javax.swing.GroupLayout painelVazioLayout = new javax.swing.GroupLayout(painelVazio);
+        painelVazio.setLayout(painelVazioLayout);
+        painelVazioLayout.setHorizontalGroup(
+            painelVazioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelVazioLayout.createSequentialGroup()
+                .addGap(163, 163, 163)
+                .addComponent(addReceita)
+                .addContainerGap(167, Short.MAX_VALUE))
+        );
+        painelVazioLayout.setVerticalGroup(
+            painelVazioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelVazioLayout.createSequentialGroup()
+                .addGap(122, 122, 122)
+                .addComponent(addReceita, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(126, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(486, 486, 486)
-                .addComponent(jButton1)
-                .addContainerGap(626, Short.MAX_VALUE))
+                .addGap(341, 341, 341)
+                .addComponent(painelVazio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(359, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(245, 245, 245)
-                .addComponent(jButton1)
-                .addContainerGap(285, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(109, 109, 109)
+                .addComponent(painelVazio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(175, Short.MAX_VALUE))
         );
-
-        jTabbedPane1.addTab("Receitas", jPanel2);
-
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -153,22 +162,12 @@ public class FrontValidaMed extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1280, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(355, 355, 355))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 99, Short.MAX_VALUE)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
-        jTabbedPane1.getAccessibleContext().setAccessibleName("tabReceita");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -176,242 +175,6 @@ public class FrontValidaMed extends javax.swing.JFrame {
     private void txtMARCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMARCAActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMARCAActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            javax.swing.JSpinner seletorData = new javax.swing.JSpinner(
-                new javax.swing.SpinnerDateModel(
-                    new java.util.Date(),
-                    null,
-                    null,
-                    java.util.Calendar.DAY_OF_MONTH
-                )
-            );
-
-            //Informações da Receita
-            
-            seletorData.setEditor(
-                new javax.swing.JSpinner.DateEditor(seletorData, "dd/MM/yyyy")
-            );
-
-            int opcao = javax.swing.JOptionPane.showConfirmDialog(
-                this,
-                seletorData,
-                "Data de emissão",
-                javax.swing.JOptionPane.OK_CANCEL_OPTION
-            );
-
-            if (opcao != javax.swing.JOptionPane.OK_OPTION) {
-                return;
-            }
-
-            String data = new java.text.SimpleDateFormat("dd/MM/yyyy")
-                .format((java.util.Date) seletorData.getValue());
-
-            String crm = javax.swing.JOptionPane.showInputDialog(
-                this, "CRM do médico:"
-            );
-
-            if (crm == null) {
-                return;
-            }
-
-            String respostaCarimbo = javax.swing.JOptionPane.showInputDialog(
-                this,
-                "A receita possui assinatura e carimbo? (sim ou não)"
-            );
-
-            if (respostaCarimbo == null) {
-                return;
-            }
-
-            boolean carimbo = respostaCarimbo.trim().equalsIgnoreCase("sim")
-                    || respostaCarimbo.trim().equalsIgnoreCase("s");
-
-            //Informações Medicamentos
-            
-            String quantidadeTexto = javax.swing.JOptionPane.showInputDialog(
-                this, "Quantidade de medicamentos:"
-            );
-
-            if (quantidadeTexto == null) {
-                return;
-            }
-
-            int quantidade = Integer.parseInt(quantidadeTexto);
-
-            if (quantidade <= 0) {
-                javax.swing.JOptionPane.showMessageDialog(
-                    this, "Informe pelo menos um medicamento."
-                );
-                return;
-            }
-
-            Medicamento[] medicamentos = new Medicamento[quantidade];
-
-            for (int i = 0; i < quantidade; i++) {
-                String nome = javax.swing.JOptionPane.showInputDialog(
-                    this, "Nome do medicamento: "
-                );
-
-                if (nome == null) {
-                    return;
-                }
-
-                String dosagemTexto = javax.swing.JOptionPane.showInputDialog(
-                    this, "Concentração do medicamento (mg):"
-                );
-
-                if (dosagemTexto == null) {
-                    return;
-                }
-
-                int dosagem = Integer.parseInt(dosagemTexto);
-
-                String comprimidosTexto = javax.swing.JOptionPane.showInputDialog(
-                    this, "Comprimidos por dia:"
-                );
-
-                if (comprimidosTexto == null) {
-                    return;
-                }
-
-                int comprimidos = Integer.parseInt(comprimidosTexto);
-
-                String intervaloTexto = javax.swing.JOptionPane.showInputDialog(
-                    this, "Intervalo entre doses (horas):"
-                );
-
-                if (intervaloTexto == null) {
-                    return;
-                }
-
-                int intervalo = Integer.parseInt(intervaloTexto);
-
-                String diasTexto = javax.swing.JOptionPane.showInputDialog(
-                    this, "Duração do tratamento (dias):"
-                );
-
-                if (diasTexto == null) {
-                    return;
-                }
-
-                int dias = Integer.parseInt(diasTexto);
-
-                medicamentos[i] = new Medicamento(
-                    nome, dosagem, comprimidos, intervalo, dias
-                );
-            }
-
-            //Informações do Paciente
-            
-            String nomePaciente = javax.swing.JOptionPane.showInputDialog(
-                this, "Nome do paciente:"
-            );
-
-            if (nomePaciente == null) {
-                return;
-            }
-
-            String idadeTexto = javax.swing.JOptionPane.showInputDialog(
-                this, "Idade do paciente:"
-            );
-
-            if (idadeTexto == null) {
-                return;
-            }
-
-            int idade = Integer.parseInt(idadeTexto);
-
-            String sexo = javax.swing.JOptionPane.showInputDialog(
-                this, "Sexo do paciente:"
-            );
-
-            if (sexo == null) {
-                return;
-            }
-
-            //Exibição das Respostas
-            
-            StringBuilder texto = new StringBuilder();
-
-
-
-            texto.append("========== MEDICAMENTOS ==========\n");
-
-            for (int i = 0; i < medicamentos.length; i++) {
-                Medicamento m = medicamentos[i];
-
-                texto.append("\nMedicamento ").append(i + 1).append(":\n");
-                texto.append("Nome: ").append(m.getNome()).append("\n");
-                texto.append("Dosagem: ").append(m.getConcentracao()).append("\n");
-                texto.append("Comprimidos por dia: ")
-                     .append(m.getComprimidos()).append("\n");
-                texto.append("Intervalo entre doses: ")
-                     .append(m.getIntervalos()).append(" horas\n");
-                texto.append("Duração: ").append(m.getDias()).append(" dias\n");
-            }
-
-            javax.swing.JTextArea area = new javax.swing.JTextArea(
-                texto.toString(), 22, 45
-            );
-
-            area.setEditable(false);
-            area.setCaretPosition(0);
-
-            int confirmacao = javax.swing.JOptionPane.showConfirmDialog(
-                this,
-                new javax.swing.JScrollPane(area),
-                "Confira os dados antes de salvar",
-                javax.swing.JOptionPane.YES_NO_OPTION,
-                javax.swing.JOptionPane.QUESTION_MESSAGE
-            );
-
-            if (confirmacao != javax.swing.JOptionPane.YES_OPTION) {
-                javax.swing.JOptionPane.showMessageDialog(
-                    this,
-                    "Receita não salva. Confira os dados e tente novamente."
-                );
-                return;
-            }
-
-            if (!carimbo) {
-                javax.swing.JOptionPane.showMessageDialog(
-                    this,
-                    "ATENÇÃO: a receita não possui assinatura e carimbo!",
-                    "Aviso",
-                    javax.swing.JOptionPane.WARNING_MESSAGE
-                );
-            }
-
-            try (java.io.FileWriter escritor =
-                     new java.io.FileWriter("receitas.txt", true)) {
-                escritor.write(texto.toString());
-                escritor.write("\n\n");
-            }
-
-            javax.swing.JOptionPane.showMessageDialog(
-                this,
-                "Receita salva com sucesso!",
-                "Confirmação",
-                javax.swing.JOptionPane.INFORMATION_MESSAGE
-            );
-
-        } catch (NumberFormatException e) {
-            javax.swing.JOptionPane.showMessageDialog(
-                this, "Digite números válidos nos campos numéricos."
-            );
-        } catch (java.io.IOException e) {
-            javax.swing.JOptionPane.showMessageDialog(
-                this, "Erro ao salvar a receita: " + e.getMessage()
-            );
-        } catch (java.time.format.DateTimeParseException e) {
-            javax.swing.JOptionPane.showMessageDialog(
-                this, "A data informada é inválida."
-            );
-        }
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -449,11 +212,9 @@ public class FrontValidaMed extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton addReceita;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
@@ -462,7 +223,7 @@ public class FrontValidaMed extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JPanel painelVazio;
     private javax.swing.JTextField txtMARCA;
     // End of variables declaration//GEN-END:variables
 }

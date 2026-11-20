@@ -34,6 +34,7 @@ public class CadastroValidaMed extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        botaoGSexo = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         bttnCadastrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -71,12 +72,16 @@ public class CadastroValidaMed extends javax.swing.JFrame {
         jTextField1.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(250, 250, 250));
         jTextField1.setText("Cadastre-se");
+        jTextField1.setBorder(null);
+        jTextField1.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         jTextField1.addActionListener(this::jTextField1ActionPerformed);
 
         jLabel2.setBackground(new java.awt.Color(40, 40, 40));
         jLabel2.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(250, 250, 250));
         jLabel2.setText("Idade:");
+
+        txtNome.setForeground(new java.awt.Color(250, 250, 250));
 
         jLabel3.setBackground(new java.awt.Color(40, 40, 40));
         jLabel3.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
@@ -90,13 +95,20 @@ public class CadastroValidaMed extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(250, 250, 250));
         jLabel4.setText("Confirmar senha:");
 
+        optMasc.setBackground(new java.awt.Color(75, 91, 250));
+        botaoGSexo.add(optMasc);
         optMasc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         optMasc.setForeground(new java.awt.Color(10, 10, 10));
         optMasc.setText("Masculino");
+        optMasc.setBorder(null);
+        optMasc.addActionListener(this::optMascActionPerformed);
 
+        optFem.setBackground(new java.awt.Color(75, 91, 250));
+        botaoGSexo.add(optFem);
         optFem.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         optFem.setForeground(new java.awt.Color(10, 10, 10));
         optFem.setText("Feminino");
+        optFem.setBorder(null);
 
         jLabel5.setBackground(new java.awt.Color(40, 40, 40));
         jLabel5.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
@@ -112,7 +124,7 @@ public class CadastroValidaMed extends javax.swing.JFrame {
         btnTelaLogin.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         btnTelaLogin.setForeground(new java.awt.Color(250, 250, 250));
         btnTelaLogin.setText("Já tem Cadastro ? Clique aqui!");
-        btnTelaLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnTelaLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -121,7 +133,7 @@ public class CadastroValidaMed extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(390, 390, 390)
+                        .addGap(402, 402, 402)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -129,9 +141,7 @@ public class CadastroValidaMed extends javax.swing.JFrame {
                                 .addGap(63, 63, 63)
                                 .addComponent(optMasc)
                                 .addGap(18, 18, 18)
-                                .addComponent(optFem)
-                                .addGap(54, 54, 54))
-                            .addComponent(bttnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(optFem))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel4)
                                 .addComponent(txtConfirmarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -149,20 +159,24 @@ public class CadastroValidaMed extends javax.swing.JFrame {
                                     .addComponent(jLabel1)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(71, 71, 71)))))
+                                    .addGap(71, 71, 71))
+                                .addComponent(bttnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(487, 487, 487)
+                        .addGap(498, 498, 498)
                         .addComponent(btnTelaLogin)))
-                .addContainerGap(448, Short.MAX_VALUE))
+                .addContainerGap(436, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(112, 112, 112)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel6))
@@ -183,11 +197,11 @@ public class CadastroValidaMed extends javax.swing.JFrame {
                     .addComponent(optMasc)
                     .addComponent(optFem)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(bttnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnTelaLogin)
-                .addContainerGap(216, Short.MAX_VALUE))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -277,6 +291,10 @@ public class CadastroValidaMed extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSenhaActionPerformed
 
+    private void optMascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optMascActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_optMascActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -303,6 +321,7 @@ public class CadastroValidaMed extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup botaoGSexo;
     private javax.swing.JButton btnTelaLogin;
     private javax.swing.JButton bttnCadastrar;
     private javax.swing.JLabel jLabel1;

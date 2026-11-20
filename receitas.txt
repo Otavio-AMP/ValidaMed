@@ -59,3 +59,13 @@ Intervalo entre doses: 3 horas
 Duração: 365 dias
 
 
+========== MEDICAMENTOS ==========
+
+Medicamento 1:
+Nome: dipirona
+Dosagem: 99
+Comprimidos por dia: 7
+Intervalo entre doses: 2 horas
+Duração: 7 dias
+
+
