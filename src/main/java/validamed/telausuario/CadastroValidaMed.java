@@ -81,7 +81,8 @@ public class CadastroValidaMed extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(250, 250, 250));
         jLabel2.setText("Idade:");
 
-        txtNome.setForeground(new java.awt.Color(250, 250, 250));
+        txtNome.setForeground(new java.awt.Color(0, 0, 0));
+        txtNome.setSelectedTextColor(new java.awt.Color(0, 0, 0));
 
         jLabel3.setBackground(new java.awt.Color(40, 40, 40));
         jLabel3.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
