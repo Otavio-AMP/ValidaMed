@@ -27,7 +27,7 @@ public class LoginValidaMed extends javax.swing.JFrame {
 
         bttnLogin.addActionListener(e -> realizarLogin());
         telaCadastro.addActionListener(e -> mostrarTelaCadastro());
-}
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -170,7 +170,9 @@ public class LoginValidaMed extends javax.swing.JFrame {
             );
             //Metodo de Login
             MetodosPaciente logar = new MetodosPaciente();
-            Paciente dadosLogin = new Paciente(nome, senha);
+            Paciente dadosLogin = new Paciente();
+            dadosLogin.setNomePaciente(nome);
+            dadosLogin.setSenhaPaciente(senha);
             logar.loginPaciente(dadosLogin);
             
             //Fluxo Tela
@@ -180,7 +182,7 @@ public class LoginValidaMed extends javax.swing.JFrame {
                 this.dispose();
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Algo deu errado com o Login" + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Algo deu errado com o Login - " + e.getMessage());
         }
     }
     
@@ -195,7 +197,6 @@ public class LoginValidaMed extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"Erro ao tentar trocar de tela: " + e.getMessage());
         }
-        
     }
     /**
      * @param args the command line arguments

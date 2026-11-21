@@ -138,7 +138,7 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Login"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Cursor Padr&#xe3;o"/>
+              <Color id="Default Cursor"/>
             </Property>
           </Properties>
           <Events>
@@ -195,7 +195,7 @@
             </Property>
             <Property name="text" type="java.lang.String" value="N&#xe3;o tem Cadastro ? Clique aqui!"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Cursor Padr&#xe3;o"/>
+              <Color id="Default Cursor"/>
             </Property>
           </Properties>
         </Component>
