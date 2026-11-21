@@ -35,25 +35,29 @@ public class MetodosPaciente {
     
     public boolean loginPaciente(Paciente loginPaciente) {
         
-        String sql = "select * from paciente where nome = ? and senha = ?";
-        
-        try (PreparedStatement rq = conn.prepareStatement(sql)){
+        String sql = "select id, nome, idade, sexo from paciente where nome = ? and senha = ?";
+
+        try (PreparedStatement rq = conn.prepareStatement(sql)) {
             rq.setString(1, loginPaciente.getNomePaciente());
             rq.setString(2, loginPaciente.getSenhaPaciente());
-            
-         try (ResultSet rs = rq.executeQuery()) {
-            if (rs.next()) {
-                JOptionPane.showMessageDialog(null, "Login com Sucesso!");
-                return true;   // achou o usuário: login válido
-                 
-            } else {
-                JOptionPane.showMessageDialog(null, "Nome ou senha incorretos.");
-                return false;  // não achou
-            }
+
+            try (ResultSet rs = rq.executeQuery()) {
+                if (rs.next()) {
+                    // completa o objeto com os dados que vieram do banco
+                    loginPaciente.setIdPaciente(rs.getInt("id"));
+                    loginPaciente.setIdadePaciente(rs.getInt("idade"));
+                    loginPaciente.setSexoPaciente(rs.getString("sexo"));
+
+                    JOptionPane.showMessageDialog(null, "Login com Sucesso!");
+                    return true;
+                } else {
+                    JOptionPane.showMessageDialog(null, "Nome ou senha incorretos.");
+                    return false;
+                }
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Erro ao realizar login" + e.getMessage());
-          return false;
+            JOptionPane.showMessageDialog(null, "Erro ao realizar login" + e.getMessage());
+            return false;
         }
     }
 }
