@@ -10,20 +10,26 @@
 
 package validamed;
 
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Font;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 import validamed.*;
+import validamed.telausuario.CadastroReceita;
 import validamed.metodo.*;
 
 public class FrontValidaMed extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FrontValidaMed
-     */
+    private Paciente loginPaciente;
     public FrontValidaMed(Paciente loginPaciente) {
         initComponents();
-        if(this.isActive()){
-            MetodosReceita receitas = new MetodosReceita();
-            receitas.exibirReceita(loginPaciente);
-        }
+        configurarTabela();
+        this.loginPaciente = loginPaciente;
+        carregarReceitas();
         setLocationRelativeTo(null);
     }
     
@@ -52,6 +58,8 @@ public class FrontValidaMed extends javax.swing.JFrame {
         txtMARCA = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         painelVazio = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblReceitas = new javax.swing.JTable();
         addReceita = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
 
@@ -114,28 +122,40 @@ public class FrontValidaMed extends javax.swing.JFrame {
         painelVazio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 206, 255)));
         painelVazio.setPreferredSize(new java.awt.Dimension(500, 300));
 
-        addReceita.setBackground(new java.awt.Color(75, 91, 250));
-        addReceita.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        addReceita.setForeground(new java.awt.Color(250, 250, 250));
-        addReceita.setText("Adicionar Receita");
-        addReceita.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tblReceitas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tblReceitas);
 
         javax.swing.GroupLayout painelVazioLayout = new javax.swing.GroupLayout(painelVazio);
         painelVazio.setLayout(painelVazioLayout);
         painelVazioLayout.setHorizontalGroup(
             painelVazioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelVazioLayout.createSequentialGroup()
-                .addGap(163, 163, 163)
-                .addComponent(addReceita)
-                .addContainerGap(167, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 945, Short.MAX_VALUE)
         );
         painelVazioLayout.setVerticalGroup(
             painelVazioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelVazioLayout.createSequentialGroup()
-                .addGap(122, 122, 122)
-                .addComponent(addReceita, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(126, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
         );
+
+        addReceita.setBackground(new java.awt.Color(75, 91, 250));
+        addReceita.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        addReceita.setForeground(new java.awt.Color(250, 250, 250));
+        addReceita.setText("Adicionar Receita");
+        addReceita.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        addReceita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addReceitaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -143,17 +163,24 @@ public class FrontValidaMed extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(341, 341, 341)
-                .addComponent(painelVazio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(359, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addComponent(painelVazio, javax.swing.GroupLayout.PREFERRED_SIZE, 947, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(521, 521, 521)
+                        .addComponent(addReceita)))
+                .addContainerGap(188, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(109, 109, 109)
-                .addComponent(painelVazio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addGap(62, 62, 62)
+                .addComponent(painelVazio, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(addReceita, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         setJMenuBar(jMenuBar1);
@@ -162,19 +189,91 @@ public class FrontValidaMed extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1280, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    private void carregarReceitas() {
+        String[] colunas = {"Data de emissão", "CRM", "Carimbo", "Medicamento",
+                            "Comprimidos/dia", "Dias", "Situação"};
 
+        DefaultTableModel modelo = new DefaultTableModel(colunas, 0) {
+            @Override
+            public boolean isCellEditable(int linha, int coluna) {
+                return false;
+            }
+        };
+
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        MetodosReceita metodos = new MetodosReceita();
+
+        for (Receita r : metodos.exibirReceita(loginPaciente)) {
+            String situacao = receitaValida(r) ? "OK" : "PRECISA RENOVAR";
+
+            for (Medicamento m : metodos.exibirMedicamentos(r.getIdReceita())) {
+                modelo.addRow(new Object[]{
+                    r.getDataEmissao().format(fmt),
+                    r.getCRMDoMedico(),
+                    r.getCarimbo() ? "Sim" : "Não",
+                    m.getNome(),
+                    m.getComprimidos(),
+                    m.getDias(),
+                    situacao
+                });
+            }
+        }
+        tblReceitas.setModel(modelo);
+    }
+    
+    private boolean receitaValida(Receita r) {
+        boolean dentroDoPrazo = !LocalDate.now().isAfter(r.getDataEmissao().plusMonths(6));
+        return dentroDoPrazo && r.getCarimbo();
+    }
+    
+    private void configurarTabela() {
+        final int COL_SITUACAO = 6;
+
+        tblReceitas.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable tabela, Object valor,
+                    boolean selecionada, boolean foco, int linha, int coluna) {
+
+                Component comp = super.getTableCellRendererComponent(
+                        tabela, valor, selecionada, foco, linha, coluna);
+
+                boolean ok = "OK".equals(tabela.getValueAt(linha, COL_SITUACAO));
+
+                if (!selecionada) {
+                    comp.setBackground(ok ? new Color(230, 245, 230) : new Color(253, 232, 232));
+                    comp.setForeground(Color.BLACK);
+                }
+                if (coluna == COL_SITUACAO) {
+                    comp.setFont(comp.getFont().deriveFont(Font.BOLD));
+                    if (!selecionada) {
+                        comp.setForeground(ok ? new Color(30, 120, 50) : new Color(190, 30, 30));
+                    }
+                }
+                return comp;
+            }
+        });
+    }
+    
     private void txtMARCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMARCAActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMARCAActionPerformed
+
+    private void addReceitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addReceitaActionPerformed
+        // TODO add your handling code here:
+        CadastroReceita dialog = new CadastroReceita(this, loginPaciente);
+        dialog.setVisible(true);
+        carregarReceitas();
+    }//GEN-LAST:event_addReceitaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -223,7 +322,9 @@ public class FrontValidaMed extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel painelVazio;
+    private javax.swing.JTable tblReceitas;
     private javax.swing.JTextField txtMARCA;
     // End of variables declaration//GEN-END:variables
 }
