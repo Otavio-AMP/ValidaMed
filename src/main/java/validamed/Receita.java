@@ -37,34 +37,32 @@ public class Receita {
         return this.idReceita;
     }
     
+    public int setIdReceita(int idReceita){
+        return this.idReceita = idReceita;
+    }
+    
     public LocalDate getDataEmissao(){
         return this.dataEmissao;
+    }
+    
+    public LocalDate setDataEmissao(LocalDate dataEmissao){
+        return this.dataEmissao = dataEmissao;
     }
     
     public int getCRMDoMedico(){
        return this.crmDoMedico; 
     }
     
+    public int setCRMDoMedico(int crmDoMedico){
+        return this.crmDoMedico = crmDoMedico;
+    }
+    
     public boolean getCarimbo(){
         return this.carimbo;
     }
     
-    public void showDadosDaReceita(){
-        System.out.println("-Dados da Receita-");
-        System.out.println("Data da Receita: " + dataEmissao);
-        System.out.println("CRM do Medico: " + crmDoMedico);
-        System.out.println("Lista de Medicamentos {");
-        for(int i = 0; i < medicamentos.length; i++){
-            medicamentos[i].getNome();
-            medicamentos[i].getConcentracao();
-            medicamentos[i].getDias();
-            medicamentos[i].getComprimidos();
-        }
-        System.out.println("}");
-        if(carimbo){
-            System.out.println("Receita carimbada");
-        }else{
-            System.out.println("Receita sem carimbo, não valida");
-        }
+    public boolean setCarimbo(boolean carimbo){
+        return this.carimbo = carimbo;
     }
+    
 }
