@@ -4,34 +4,42 @@
  */
 package validamed;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author aster
  */
 public class Medicamento {
     private String nome;
-    private int concentracao;
+    private LocalDate dataEmissao;
     private int comprimidos;
     private int intervalos;
     private int dias;
     
-    public Medicamento(String nome, int concentracao, int comprimidos, int intervalos, int dias){
+    public Medicamento(String nome, LocalDate dataEmissao, int comprimidos, int intervalos, int dias){
         this.nome = nome;
-        this.concentracao = concentracao;
+        this.dataEmissao = dataEmissao;
         this.comprimidos = comprimidos;
         this.intervalos = intervalos;
         this.dias = dias;
     }
     
+    public Medicamento(){
+        
+    }
+    
     public String getNome(){
         return this.nome;
     }
-    public int getConcentracao(){
-        if(concentracao >= 1000){
-            return this.concentracao/100;
-        }else{
-            return this.concentracao;
-        } 
+    public String setNome(String medicamento){
+       return this.nome = medicamento;
+    }
+    public int setComprimidos(int comprimidos){
+        return this.comprimidos = comprimidos;
+    }
+    public int setDias(int dias){
+        return this.dias = dias;
     }
     public int getIntervalos() {
         return this.intervalos;
